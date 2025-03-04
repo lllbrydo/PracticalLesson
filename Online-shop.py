@@ -1,3 +1,6 @@
+import datetime
+
+
 class Product:
     def __init__(self, name, price, category):
         self.name = name
@@ -8,10 +11,12 @@ class Cart:
     def __init__(self):
         self.products = []
 
+    # додаємо товар до кошика
     def add_product(self, product):
         self.products.append(product)
         print(f"{product.name} додано!")
 
+    # видаляємо із кошика товар
     def remove_product(self, product_name):
      try:
         for product in self.products:
@@ -23,6 +28,7 @@ class Cart:
      except Exception as problem:
             print(f"помилка {problem}")
 
+    #  загальна сума в кошику
     def get_total(self):
         total = 0
         for product in self.products:
@@ -41,7 +47,7 @@ class Cart:
          print(f"помилка {problem}")
 
 products = [
-    Product("test", 1000, "test")
+    Product("test", 1000, "test"),
     Product("Iphone 16 Pro Max", 65000, "Електрика"),
     Product("Apple iPad 11", 25000, "Електрика"),
     Product("Samsung 111111", 10500, "Електрика"),
@@ -88,6 +94,8 @@ while True:
             print(f"загальна сума {total} грн")
             confirm = input("оформити замовлення (Так/Ні) ")
             if confirm == "Так":
+                zakaz_day = datetime.date.today()
+                print(f"Замовлення оформлено на {zakaz_day}")
                 print("оформлено")
                 cart = Cart()
             else:
