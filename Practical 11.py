@@ -32,9 +32,9 @@ class Teacher:
                 )
 
 
-teacher = Teacher("Олена",
+teacher = Teacher("Анастасія",
                   "Математика",
-                  10
+                  7
                   )
 
 teacher.add_student("назар")
